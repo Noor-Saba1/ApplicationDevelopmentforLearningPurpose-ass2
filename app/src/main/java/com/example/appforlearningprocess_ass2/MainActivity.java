@@ -2,6 +2,7 @@ package com.example.appforlearningprocess_ass2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -13,32 +14,33 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     String [] river = {"Indus","Jhelum","Chenab","Kabul","Sutlej","Kunhar","Kurrem","Gomal"};
     String [] dams = {"Tarbela","Mangla","Raqal","Diamer Bhasha","Khanpur","Hub","Mirani","Warsak","Satpara","Neelum","Gulpur"};
-    String [] lakes = {"Lulusar","Saif-ul-Maluk","Lower Kachura","Mahodand","Attabad","Dudipatsar","Ansoo"};
-    Button btnSky, btnRoot, btnGrass;
-    TextView textView, textViewAnswer, textViewGrassInfo,
-            TextViewRootInfo, TextViewSkyInfo;
-    int category = 0, index=0, grassCorrectCount, grassWrongCount,
-            skyCorrectCount, skyWrongCount, rootCorrectCount, rootWrongCount;
+    String [] lake = {"Lulusar","Saif-ul-Maluk","Lower Kachura","Mahodand","Attabad","Dudipatsar","Ansoo"};
+    Button btnRiver, btnDam, btnLake;
+    TextView textView, textViewAnswer, textViewRiverInfo,
+            textViewDamInfo, textViewLakeInfo;
+    int category = 0, index=0, riverCorrectCount, riverWrongCount,
+            damCorrectCount, damWrongCount, lakeCorrectCount, lakeWrongCount;
     String answer = "";
 
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView = findViewById(R.id.textViewSkyRoot);
-        btnGrass = findViewById(R.id.btnGrass);
-        btnGrass.setOnClickListener(this);
-        btnRoot = findViewById(R.id.btnRoot);
-        btnRoot.setOnClickListener(this);
-        btnSky = findViewById(R.id.btnSky);
-        btnSky.setOnClickListener(this);
-        textViewAnswer = findViewById(R.id.textViewSkyResult);
-        textViewGrassInfo = findViewById(R.id.textViewResultGrass);
-        TextViewRootInfo = findViewById(R.id.textViewResultRoot);
-        TextViewSkyInfo = findViewById(R.id.textViewResultSky);
+        textView = findViewById(R.id.textViewRiverLakeDam);
+        btnLake = findViewById(R.id.btnLake);
+        btnLake.setOnClickListener(this);
+        btnDam = findViewById(R.id.btnDam);
+        btnDam.setOnClickListener(this);
+        btnRiver = findViewById(R.id.btnRiver);
+        btnRiver.setOnClickListener(this);
+        textViewAnswer = findViewById(R.id.textViewRiverResult);
+        textViewLakeInfo = findViewById(R.id.textViewResultLake);
+        textViewDamInfo = findViewById(R.id.textViewResultDam);
+        textViewRiverInfo = findViewById(R.id.textViewResultRiver);
 
         GenerateLetter();
 
@@ -49,58 +51,58 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Random rnd = new Random();
         category = rnd.nextInt(3);
         if (category ==0){
-            index = rnd.nextInt(skyLetter.length);
-            textView.setText(skyLetter[index]);
-            answer = "SKY";
+            index = rnd.nextInt(river.length);
+            textView.setText(river[index]);
+            answer = "RIVER";
         } else if (category ==1){
-            index = rnd.nextInt(rootLetter.length);
-            textView.setText(rootLetter[index]);
-            answer = "ROOT";
+            index = rnd.nextInt(dams.length);
+            textView.setText(dams[index]);
+            answer = "DAM";
         }else if (category ==2){
-            index = rnd.nextInt(grassLetter.length);
-            textView.setText(grassLetter[index]);
-            answer = "GRASS";
+            index = rnd.nextInt(lake.length);
+            textView.setText(lake[index]);
+            answer = "LAKE";
         }
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.btnGrass:
-                if (answer == "GRASS") {
-                    textViewAnswer.setText("Awesome");
-                    textViewAnswer.setBackgroundColor(Color.GREEN);
-                    grassCorrectCount++;
+            case R.id.btnLake:
+                if (answer == "LAKE") {
+                    textViewAnswer.setText("PERFECT");
+                    textViewAnswer.setBackgroundColor(Color.BLUE);
+                    lakeCorrectCount++;
                 } else {
-                    textViewAnswer.setText("OOP");
+                    textViewAnswer.setText("TRY AGAIN");
                     textViewAnswer.setBackgroundColor(Color.RED);
-                    grassWrongCount++;
+                    lakeCorrectCount++;
                 }
-                textViewGrassInfo.setText("Grass Letters\nRight " + grassCorrectCount + "\nWrong " + grassWrongCount);
+                textViewLakeInfo.setText("Lakes\nRight " + lakeCorrectCount + "\nWrong " + lakeWrongCount);
                 break;
-            case R.id.btnSky:
-                if (answer == "SKY") {
-                    textViewAnswer.setText("Awesome");
-                    textViewAnswer.setBackgroundColor(Color.GREEN);
-                    skyCorrectCount++;
+            case R.id.btnRiver:
+                if (answer == "RIVER") {
+                    textViewAnswer.setText("PERFECT");
+                    textViewAnswer.setBackgroundColor(Color.BLUE);
+                    riverCorrectCount++;
                 } else {
-                    textViewAnswer.setText("OOP");
+                    textViewAnswer.setText("TRY AGAIN");
                     textViewAnswer.setBackgroundColor(Color.RED);
-                    skyWrongCount++;
+                    riverWrongCount++;
                 }
-                TextViewSkyInfo.setText("Sky Letters\nRight " + skyCorrectCount + "\nWrong " + skyWrongCount);
+                textViewRiverInfo.setText("Sky Letters\nRight " + riverCorrectCount + "\nWrong " + riverWrongCount);
                 break;
-            case R.id.btnRoot:
-                if (answer == "ROOT") {
-                    textViewAnswer.setText("Awesome");
-                    textViewAnswer.setBackgroundColor(Color.GREEN);
-                    rootCorrectCount++;
+            case R.id.btnDam:
+                if (answer == "DAM") {
+                    textViewAnswer.setText("PERFECT");
+                    textViewAnswer.setBackgroundColor(Color.BLUE);
+                    damCorrectCount++;
                 } else {
-                    textViewAnswer.setText("OOP");
+                    textViewAnswer.setText("TRY AGAIN");
                     textViewAnswer.setBackgroundColor(Color.RED);
-                    rootWrongCount++;
+                    damWrongCount++;
                 }
-                TextViewRootInfo.setText("Root\nRight " + rootCorrectCount + "\nWrong " + rootWrongCount);
+                textViewDamInfo.setText("Root\nRight " + damCorrectCount + "\nWrong " + damWrongCount);
                 break;
         }
         GenerateLetter();

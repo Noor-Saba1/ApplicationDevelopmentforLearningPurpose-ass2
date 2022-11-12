@@ -7,58 +7,58 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textViewSkyRoot"
+        android:id="@+id/textViewRiverLakeDam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@color/purple_700"
-        android:text="a"
+
         android:textColor="@color/white"
-        android:textSize="200sp"
+        android:textSize="80sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnSky"
+        android:id="@+id/btnRiver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="56dp"
-        android:text="Sky"
+        android:text="River"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/btnRoot"
+        app:layout_constraintEnd_toStartOf="@+id/btnDam"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSkyRoot" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewRiverLakeDam" />
 
     <Button
-        android:id="@+id/btnRoot"
+        android:id="@+id/btnDam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Root"
+        android:text="Dam"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/btnGrass"
+        app:layout_constraintEnd_toStartOf="@+id/btnLake"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnSky"
-        app:layout_constraintTop_toTopOf="@+id/btnSky" />
+        app:layout_constraintStart_toEndOf="@+id/btnRiver"
+        app:layout_constraintTop_toTopOf="@+id/btnRiver" />
 
     <Button
-        android:id="@+id/btnGrass"
+        android:id="@+id/btnLake"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Grass"
+        android:text="Lake"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnRoot"
-        app:layout_constraintTop_toTopOf="@+id/btnRoot" />
+        app:layout_constraintStart_toEndOf="@+id/btnDam"
+        app:layout_constraintTop_toTopOf="@+id/btnDam" />
 
     <TextView
-        android:id="@+id/textViewSkyResult"
+        android:id="@+id/textViewRiverResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -67,43 +67,43 @@
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRoot" />
+        app:layout_constraintTop_toBottomOf="@+id/btnDam" />
 
     <TextView
-        android:id="@+id/textViewResultSky"
+        android:id="@+id/textViewResultRiver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Sky Letters\nRight 0\nWrong 0"
+        android:text="Rivers\nRight 0\nWrong 0"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/textViewResultRoot"
+        app:layout_constraintEnd_toStartOf="@+id/textViewResultDam"
         app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSkyResult" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewRiverResult" />
 
     <TextView
-        android:id="@+id/textViewResultRoot"
+        android:id="@+id/textViewResultDam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Root Letters\nRight 0\nWrong 0"
+        android:text="Dams\nRight 0\nWrong 0"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/textViewResultGrass"
+        app:layout_constraintEnd_toStartOf="@+id/textViewResultLake"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewResultSky"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSkyResult" />
+        app:layout_constraintStart_toEndOf="@+id/textViewResultRiver"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRiverResult" />
 
     <TextView
-        android:id="@+id/textViewResultGrass"
+        android:id="@+id/textViewResultLake"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Grass Letters\nRight 0\nWrong 0"
+        android:text="Lake\nRight 0\nWrong 0"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewResultRoot"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSkyResult" />
+        app:layout_constraintStart_toEndOf="@+id/textViewResultDam"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRiverResult" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -111,13 +111,5 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="106dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
