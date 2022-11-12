@@ -42,12 +42,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textViewDamInfo = findViewById(R.id.textViewResultDam);
         textViewRiverInfo = findViewById(R.id.textViewResultRiver);
 
-        GenerateLetter();
+        GenerateWord();
 
 
     }
 
-    private void GenerateLetter() {
+    private void GenerateWord() {
         Random rnd = new Random();
         category = rnd.nextInt(3);
         if (category ==0){
