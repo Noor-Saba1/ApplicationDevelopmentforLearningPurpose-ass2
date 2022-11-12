@@ -7,12 +7,117 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textViewSkyRoot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/purple_700"
+        android:text="a"
+        android:textColor="@color/white"
+        android:textSize="200sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSky"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:text="Sky"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnRoot"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSkyRoot" />
+
+    <Button
+        android:id="@+id/btnRoot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Root"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnGrass"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnSky"
+        app:layout_constraintTop_toTopOf="@+id/btnSky" />
+
+    <Button
+        android:id="@+id/btnGrass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grass"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnRoot"
+        app:layout_constraintTop_toTopOf="@+id/btnRoot" />
+
+    <TextView
+        android:id="@+id/textViewSkyResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRoot" />
+
+    <TextView
+        android:id="@+id/textViewResultSky"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Sky Letters\nRight 0\nWrong 0"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewResultRoot"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSkyResult" />
+
+    <TextView
+        android:id="@+id/textViewResultRoot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Root Letters\nRight 0\nWrong 0"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewResultGrass"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewResultSky"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSkyResult" />
+
+    <TextView
+        android:id="@+id/textViewResultGrass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Grass Letters\nRight 0\nWrong 0"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewResultRoot"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSkyResult" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="106dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
