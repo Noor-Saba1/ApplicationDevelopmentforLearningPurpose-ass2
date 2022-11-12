@@ -11,9 +11,9 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    String [] skyLetter = {"d","h","l","k","t","b","f"};
-    String [] grassLetter = {"a","c","e","i","m","n","o","r","s","u","v","w","x","z"};
-    String [] rootLetter = {"g","j","p","q","y"};
+    String [] river = {"Indus","Jhelum","Chenab","Kabul","Sutlej","Kunhar","Kurrem","Gomal"};
+    String [] dams = {"Tarbela","Mangla","Raqal","Diamer Bhasha","Khanpur","Hub","Mirani","Warsak","Satpara","Neelum","Gulpur"};
+    String [] lakes = {"Lulusar","Saif-ul-Maluk","Lower Kachura","Mahodand","Attabad","Dudipatsar","Ansoo"};
     Button btnSky, btnRoot, btnGrass;
     TextView textView, textViewAnswer, textViewGrassInfo,
             TextViewRootInfo, TextViewSkyInfo;
