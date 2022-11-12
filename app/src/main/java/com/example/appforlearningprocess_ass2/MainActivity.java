@@ -67,44 +67,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btnLake:
-                if (answer == "LAKE") {
-                    textViewAnswer.setText("PERFECT");
-                    textViewAnswer.setBackgroundColor(Color.BLUE);
-                    lakeCorrectCount++;
-                } else {
-                    textViewAnswer.setText("TRY AGAIN");
-                    textViewAnswer.setBackgroundColor(Color.RED);
-                    lakeCorrectCount++;
-                }
-                textViewLakeInfo.setText("Lakes\nRight " + lakeCorrectCount + "\nWrong " + lakeWrongCount);
-                break;
-            case R.id.btnRiver:
-                if (answer == "RIVER") {
-                    textViewAnswer.setText("PERFECT");
-                    textViewAnswer.setBackgroundColor(Color.BLUE);
-                    riverCorrectCount++;
-                } else {
-                    textViewAnswer.setText("TRY AGAIN");
-                    textViewAnswer.setBackgroundColor(Color.RED);
-                    riverWrongCount++;
-                }
-                textViewRiverInfo.setText("Sky Letters\nRight " + riverCorrectCount + "\nWrong " + riverWrongCount);
-                break;
-            case R.id.btnDam:
-                if (answer == "DAM") {
-                    textViewAnswer.setText("PERFECT");
-                    textViewAnswer.setBackgroundColor(Color.BLUE);
-                    damCorrectCount++;
-                } else {
-                    textViewAnswer.setText("TRY AGAIN");
-                    textViewAnswer.setBackgroundColor(Color.RED);
-                    damWrongCount++;
-                }
-                textViewDamInfo.setText("Root\nRight " + damCorrectCount + "\nWrong " + damWrongCount);
-                break;
-        }
-        GenerateLetter();
+
     }
 }
