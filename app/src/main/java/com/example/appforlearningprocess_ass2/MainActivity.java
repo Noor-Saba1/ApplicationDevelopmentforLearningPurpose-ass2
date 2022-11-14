@@ -1,73 +1,132 @@
 package com.example.appforlearningprocess_ass2;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.Random;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    String [] river = {"Indus","Jhelum","Chenab","Kabul","Sutlej","Kunhar","Kurrem","Gomal"};
-    String [] dams = {"Tarbela","Mangla","Raqal","Diamer Bhasha","Khanpur","Hub","Mirani","Warsak","Satpara","Neelum","Gulpur"};
-    String [] lake = {"Lulusar","Saif-ul-Maluk","Lower Kachura","Mahodand","Attabad","Dudipatsar","Ansoo"};
-    Button btnRiver, btnDam, btnLake;
-    TextView textView, textViewAnswer, textViewRiverInfo,
-            textViewDamInfo, textViewLakeInfo;
-    int category = 0, index=0, riverCorrectCount, riverWrongCount,
-            damCorrectCount, damWrongCount, lakeCorrectCount, lakeWrongCount;
-    String answer = "";
+
+    String question[] ={
+            "What is capital of Pakistan?",
+            "What is national animal of Pakistan?",
+            "How many provinces are in Pakistan?",
+            "Which of the following is river?",
+            "Which from the following countries is not bordered with Pakistan?"
+    };
+    String choices[][] = {
+            {"Mutlan","Islamabad","Karachi","Lahore"},
+            {"Markhor","Tiger","Zebra","Elephant"},
+            {"Two","Four","Six","Five"},
+            {"Tarbela","Saif-ul-Malook","Indus","Mangla"},
+            {"India","Afghanistan", "China","Bangladesh"}
+    };
+    String correctAnswers[] = {
+            "Islamabad",
+            "Markhor",
+            "Four",
+            "Indus",
+            "Bangladesh"
+    };
 
 
+    TextView totalQuestionsTextView;
+    TextView questionTextView;
+    Button ansA, ansB, ansC, ansD;
+    Button submitBtn;
 
-    @SuppressLint("MissingInflatedId")
+    int score=0;
+    int totalQuestion = question.length;
+    int currentQuestionIndex = 0;
+    String selectedAnswer = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView = findViewById(R.id.textViewRiverLakeDam);
-        btnLake = findViewById(R.id.btnLake);
-        btnLake.setOnClickListener(this);
-        btnDam = findViewById(R.id.btnDam);
-        btnDam.setOnClickListener(this);
-        btnRiver = findViewById(R.id.btnRiver);
-        btnRiver.setOnClickListener(this);
-        textViewAnswer = findViewById(R.id.textViewRiverResult);
-        textViewLakeInfo = findViewById(R.id.textViewResultLake);
-        textViewDamInfo = findViewById(R.id.textViewResultDam);
-        textViewRiverInfo = findViewById(R.id.textViewResultRiver);
+        totalQuestionsTextView = findViewById(R.id.total_question);
+        questionTextView = findViewById(R.id.question);
+        ansA = findViewById(R.id.ans_A);
+        ansA.setOnClickListener(this);
+        ansB = findViewById(R.id.ans_B);
+        ansB.setOnClickListener(this);
+        ansC = findViewById(R.id.ans_C);
+        ansC.setOnClickListener(this);
+        ansD = findViewById(R.id.ans_D);
+        ansD.setOnClickListener(this);
+        submitBtn = findViewById(R.id.submit_btn);
+        submitBtn.setOnClickListener(this);
 
-        GenerateWord();
+        totalQuestionsTextView.setText("Total questions : "+totalQuestion);
 
-
+        loadNewQuestion();
     }
-
-    private void GenerateWord() {
-        Random rnd = new Random();
-        category = rnd.nextInt(3);
-        if (category ==0){
-            index = rnd.nextInt(river.length);
-            textView.setText(river[index]);
-            answer = "RIVER";
-        } else if (category ==1){
-            index = rnd.nextInt(dams.length);
-            textView.setText(dams[index]);
-            answer = "DAM";
-        }else if (category ==2){
-            index = rnd.nextInt(lake.length);
-            textView.setText(lake[index]);
-            answer = "LAKE";
-        }
-    }
-
 
     @Override
     public void onClick(View view) {
 
+        ansA.setBackgroundColor(Color.BLUE);
+        ansB.setBackgroundColor(Color.BLUE);
+        ansC.setBackgroundColor(Color.BLUE);
+        ansD.setBackgroundColor(Color.BLUE);
+        ansA.setTextColor(Color.WHITE);
+        ansB.setTextColor(Color.WHITE);
+        ansC.setTextColor(Color.WHITE);
+        ansD.setTextColor(Color.WHITE);
+
+        Button clickedButton = (Button) view;
+        if(clickedButton.getId()==R.id.submit_btn){
+            if(selectedAnswer.equals(correctAnswers[currentQuestionIndex])){
+                score++;
+            }
+            currentQuestionIndex++;
+            loadNewQuestion();
+        }else{
+            selectedAnswer  = clickedButton.getText().toString();
+            clickedButton.setBackgroundColor(Color.LTGRAY);
+            clickedButton.setTextColor(Color.BLACK);
+        }
+    }
+
+    void loadNewQuestion(){
+
+        if(currentQuestionIndex == totalQuestion ){
+            finishQuiz();
+            return;
+        }
+
+        questionTextView.setText(question[currentQuestionIndex]);
+        ansA.setText(choices[currentQuestionIndex][0]);
+        ansB.setText(choices[currentQuestionIndex][1]);
+        ansC.setText(choices[currentQuestionIndex][2]);
+        ansD.setText(choices[currentQuestionIndex][3]);
+
+    }
+
+    void finishQuiz(){
+        String passStatus = "";
+        if(score > totalQuestion*0.60){
+            passStatus = "Passed";
+        }else{
+            passStatus = "Failed";
+        }
+
+        new AlertDialog.Builder(this)
+                .setTitle(passStatus)
+                .setMessage("Score is "+ score+" out of "+ totalQuestion)
+                .setPositiveButton("Restart",(dialogInterface, i) -> restartQuiz() )
+                .setCancelable(false)
+                .show();
+    }
+
+    void restartQuiz(){
+        score = 0;
+        currentQuestionIndex =0;
+        loadNewQuestion();
     }
 }
+
